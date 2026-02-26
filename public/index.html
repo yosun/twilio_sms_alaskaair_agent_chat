@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alaska Air SMS Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app" style="position:relative;">
+
+    <!-- Header -->
+    <header>
+      <span class="logo" id="header-logo">✈️</span>
+      <div class="info">
+        <h1 id="header-name">Alaska Airlines SMS</h1>
+        <div class="subtitle" id="header-number">82008</div>
+      </div>
+      <span id="status-dot" title="Connecting…"></span>
+    </header>
+
+    <!-- Agent service notification banner -->
+    <div id="agent-banner" class="hidden" role="alert" aria-live="polite">
+      <span class="icon">🤖</span>
+      <p>
+        <strong id="banner-title">Automated Agent Service</strong>
+        <span id="banner-body">
+          You are chatting with an automated SMS agent. Replies may be from a bot,
+          not a live person. Message &amp; data rates may apply.
+        </span>
+      </p>
+    </div>
+
+    <!-- Configuration warning (shown when .env is missing) -->
+    <div id="config-warning" class="hidden" role="alert">
+      ⚠️ <strong>Twilio not configured.</strong>
+      Copy <code>.env.example</code> to <code>.env</code> and add your
+      <a href="https://console.twilio.com" target="_blank" rel="noopener">Twilio credentials</a>.
+      Messages will not be delivered until credentials are set.
+    </div>
+
+    <!-- Message list -->
+    <div id="messages" aria-label="Chat messages" aria-live="polite"></div>
+
+    <!-- New message toast -->
+    <div id="new-msg-toast" aria-live="assertive">New message ↓</div>
+
+    <!-- Input area -->
+    <div id="input-area">
+      <textarea
+        id="msg-input"
+        rows="1"
+        placeholder="Type a message…"
+        aria-label="Message input"
+        maxlength="1600"
+      ></textarea>
+      <button id="send-btn" aria-label="Send message">
+        <!-- Paper-plane icon -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
